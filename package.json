@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/Kritika888/node/issues"
   },
-  "homepage": "https://github.com/Kritika888/node#readme"
+  "homepage": "https://github.com/Kritika888/node#readme",
+  "dependencies": {
+    "express": "^5.2.1"
+  }
 }

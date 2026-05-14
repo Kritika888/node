@@ -1,32 +1,10 @@
-//Basic API without Express
+const express = require('express');
+const app = express();
 
-const http = require('http');
-
-const server = http.createServer((req, res) => {
-  // Set response type to JSON
-//   res.setHeader('Content-Type', 'application/json');
-
-  if (req.url === '/' && req.method === 'GET') {
-    res.writeHead(200);
-    res.end(JSON.stringify({
-      message: 'Hello from Node API!'
-    }));
-  } 
-  else if (req.url === '/users' && req.method === 'GET') {
-    res.writeHead(200);
-    res.end(JSON.stringify([
-      { id: 1, name: 'Kriti' },
-      { id: 2, name: 'John' }
-    ]));
-  } 
-  else {
-    res.writeHead(404);
-    res.end(JSON.stringify({
-      error: 'Route not found'
-    }));
-  }
+app.get('/', (req, res) => {
+    res.send("Server running!");
 });
 
-// server.listen(5000, () => {
-//   console.log('Server running at http://localhost:1000');
-// });
+app.listen(3000, ()=>{
+    console.log("Server started on port 3000");
+});
