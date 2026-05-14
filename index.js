@@ -4,7 +4,7 @@ const http = require('http');
 
 const server = http.createServer((req, res) => {
   // Set response type to JSON
-  res.setHeader('Content-Type', 'application/json');
+//   res.setHeader('Content-Type', 'application/json');
 
   if (req.url === '/' && req.method === 'GET') {
     res.writeHead(200);
@@ -27,6 +27,6 @@ const server = http.createServer((req, res) => {
   }
 });
 
-server.listen(3000, () => {
-  console.log('Server running at http://localhost:3000');
-});
+// server.listen(5000, () => {
+//   console.log('Server running at http://localhost:1000');
+// });
