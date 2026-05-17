@@ -61,7 +61,15 @@ const login = async (req, res) =>{
     }
 }
 
+const profile = async (req, res) => {
+    res.status(200).json({
+        message: "Profile accessed!",
+        user:req.user
+    });
+}
+
 module.exports = {
     register,
-    login
+    login,
+    profile
 };
