@@ -7,6 +7,7 @@ const authMiddleware = async (req, res, next) => {
         {
             return res.status(401).json({message: "No token provided!"});
         }
+        
         //remove bearer from token
         const token = authHeader.split(" ")[1];
 
