@@ -1,0 +1,35 @@
+What is debouncing in JavaScript?
+Why do we need debouncing?
+How does debouncing improve performance?
+What is the difference between debouncing and throttling?
+When should debouncing be used? Give examples.
+How does setTimeout() help implement debouncing?
+Why is clearTimeout() important in debouncing?
+What happens if clearTimeout() is not used?
+How does closure help in debounce implementation?
+Why is timer variable usually declared outside the returned function?
+What is immediate/leading debouncing?
+What is trailing debouncing?
+What is the difference between leading and trailing debounce?
+How can you preserve this context in debounce?
+How can arguments be passed correctly in debounce?
+Can debounce be implemented using arrow functions?
+What are disadvantages of debouncing?
+Can debouncing delay user feedback?
+How is debouncing used in search bars?
+How does debouncing help API rate limiting?
+
+
+
+Type 1: Basic debounce function
+        Task: Create a debounce function that delays execution.
+Type 2: Search input debouncing
+        Task: Call API only when user stops typing.
+Type 3: Button click debouncing
+        Task: Prevent multiple rapid clicks.
+Type 4: Leading debounce (Immediate execution)
+        Task: Execute first instantly, then ignore repeated calls.
+Type 5: Debounce with cancel method
+        Task: Need ability to manually cancel pending execution.
+Type 6: Promise/API debounce
+        Task: Debounced function should return a Promise.
