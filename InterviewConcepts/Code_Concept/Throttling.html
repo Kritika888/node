@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Throttling Example</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 40px;
+        }
+
+        button {
+            padding: 12px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        #output {
+            margin-top: 20px;
+            font-size: 18px;
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>JavaScript Throttling Example</h2>
+
+    <button id="btn">Click Rapidly</button>
+
+    <div id="output"></div>
+
+    <script>
+
+        // Throttle Function
+        function throttle(fn, delay) {
+
+            let lastCall = 0;
+
+            return function (...args) {
+
+                let now = new Date().getTime();
+
+                if (now - lastCall >= delay) {
+
+                    lastCall = now;
+
+                    fn.apply(this, args);
+                }
+            };
+        }
+
+        // Function to execute
+        function showMessage() {
+
+            document.getElementById("output").innerHTML =
+                "Function executed at: " + new Date().toLocaleTimeString();
+
+            console.log("Function executed");
+        }
+
+        // Create throttled version
+        const throttledFunction = throttle(showMessage, 2000);
+
+        // Add event listener
+        document.getElementById("btn").addEventListener("click", throttledFunction);
+
+    </script>
+
+</body>
+</html>

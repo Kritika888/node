@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Closure Example</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 40px;
+        }
+
+        button {
+            padding: 10px 18px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 15px;
+        }
+
+        #output {
+            margin-top: 20px;
+            font-size: 20px;
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>JavaScript Closure Example</h2>
+
+    <button id="btn">Increase Counter</button>
+
+    <div id="output">Counter: 0</div>
+
+    <script>
+        //An inner function remembers variables from its outer function even after the outer function has finished execution.
+        // Function returning another function
+        function createCounter() {
+
+            let count = 0;
+
+            // Inner function
+            return function () {
+
+                count++;
+
+                document.getElementById("output").innerHTML =
+                    "Counter: " + count;
+
+                console.log("Counter:", count);
+            };
+        }
+
+        // Closure created here
+        const counter = createCounter();
+
+        // Button click event
+        document.getElementById("btn")
+            .addEventListener("click", counter);
+
+    </script>
+
+</body>
+</html>
