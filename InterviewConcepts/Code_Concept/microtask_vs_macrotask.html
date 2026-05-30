@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Microtasks vs Macrotasks</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 30px;
+        }
+
+        button {
+            padding: 10px 18px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        #output {
+            margin-top: 20px;
+            padding: 15px;
+            border: 1px solid #ccc;
+            min-height: 150px;
+            background: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Microtasks vs Macrotasks Example</h2>
+
+    <button id="btn">Run Example</button>
+
+    <div id="output"></div>
+
+    <script>
+
+        const output = document.getElementById("output");
+
+        function print(message) {
+
+            output.innerHTML += message + "<br>";
+
+            console.log(message);
+        }
+
+        document.getElementById("btn")
+            .addEventListener("click", function () {
+
+                output.innerHTML = "";
+
+                print("1. Synchronous Start");
+
+                // Macrotask
+                setTimeout(() => {
+                    print("4. Macrotask - setTimeout");
+                }, 0);
+
+                // Microtask
+                Promise.resolve().then(() => {
+                    print("3. Microtask - Promise.then");
+                });
+
+                // Another Microtask
+                queueMicrotask(() => {
+                    print("2. Microtask - queueMicrotask");
+                });
+
+                print("5. Synchronous End");
+            });
+
+    </script>
+
+</body>
+</html>
